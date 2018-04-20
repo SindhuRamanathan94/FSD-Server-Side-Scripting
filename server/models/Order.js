@@ -2,6 +2,7 @@
  * Created by Academy
  */
 var mongoose = require('mongoose');
+var Validation = require('../controllers/Validation');
 Schema = mongoose.Schema;
 
 //Define your order schema here
@@ -16,7 +17,7 @@ var OrderModelSchema = new Schema({
     }],
     checkoutDetails: 
     {
-        name: {type: String, required: true},
+        name: {type: String, required: true, validate: Validation.nameValidator},
         address: {
                   line1: {type: String, required: true},
                   country:{type: String, required: true},
